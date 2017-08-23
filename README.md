@@ -1,6 +1,6 @@
 # Relic Valuation
 
-Source code used for my Google Sheet which valuates Relics for Warframe.
+This repo is all about Warframe and giving a value to each relic. Trying to value relics in warframe requires remembering not only the names of each relic, but also its rare drop. This is cumbersome and thus I have automated the process of looking up the value for each relic. This project was undertaken using Google Sheets and this is simply a dump for the code used since I am too lazy to publish.
 
 ## Getting Started
 
