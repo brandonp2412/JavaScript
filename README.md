@@ -4,7 +4,11 @@ This repo is all about Warframe and giving a value to each relic. Trying to valu
 
 ## Getting Started
 
-Copy this text into the Google Sheets script editor and she's ready to go.
+* Make new Google Sheet
+* Go to tools > script editor
+* Paste code from Prod.js
+* Go back to sheet and fill in a relics name and rare item drop
+* In a separate cell use =valueitem(the_cell)
 
 ### Prerequisites
 
