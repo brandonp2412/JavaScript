@@ -29,6 +29,9 @@ function getOrders(item, url) {
 
 function getMaxBuy(item) {
   var orders = figureItemType(item);
+  while (orders.buy === undefined) {
+    orders = figureItemType(item);
+  }
   var buyPrices = [];
   for (var i = 0; i < orders.buy.length; i++) {
     var buyOrder = orders.buy[i];
@@ -42,6 +45,9 @@ function getMaxBuy(item) {
 
 function getMinSell(item) {
   var orders = figureItemType(item);
+  while (orders.buy === undefined) {
+    orders = figureItemType(item);
+  }
   var sellPrices = [];
   for (var i = 0; i < orders.sell.length; i++) {
     var buyOrder = orders.sell[i];
