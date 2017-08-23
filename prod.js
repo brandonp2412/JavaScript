@@ -1,12 +1,16 @@
+/*
+ * Author: Brandon Presley
+ * Description: A set of functions for the purpose of valuating relics in Warframe.
+ * GitHub: https://github.com/brandonp2412/RelicValuation
+ */
+
 function testValueItem() {
   valueItem("Nikana Prime Hilt");
 }
 
-/*  =========================================================================
- *  Items can be blueprints or sets. More often than not, they're blueprints.
- *  But if they are actually a set this will change the URI to be correct.
- *  =========================================================================
- */ 
+
+// Items can be blueprints or sets. More often than not, they're blueprints.
+// But if they are actually a set this will change the URI to be correct.
 function figureItemType(item) {
   var orders = getOrders(item, 'https://warframe.market/api/get_orders/Blueprint/');
   if (orders === "Wrong request") {
