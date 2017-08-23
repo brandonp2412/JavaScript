@@ -1,11 +1,5 @@
-function testGetMaxBuy() {
-  var testItem = "Oberon Prime Systems";
-  getMaxBuy(testItem);
-}
-
-function testGetMinSell() {
-  var testItem = "Oberon Prime Systems";
-  getMinSell(testItem);
+function testValueItem() {
+  valueItem("Nikana Prime Hilt");
 }
 
 /*  =========================================================================
@@ -27,14 +21,17 @@ function getOrders(item, url) {
   return JSON.parse(get).response;
 }
 
-function getMaxBuy(item) {
+function valueItem(item) {
   var orders = figureItemType(item);
-  while (orders.buy === undefined) {
-    orders = figureItemType(item);
-  }
+  var maxBuy = getMaxBuy(orders.buy);
+  var minSell = getMinSell(orders.sell);
+  return [[minSell, maxBuy]];
+}
+
+function getMaxBuy(orders) {
   var buyPrices = [];
-  for (var i = 0; i < orders.buy.length; i++) {
-    var buyOrder = orders.buy[i];
+  for (var i = 0; i < orders.length; i++) {
+    var buyOrder = orders[i];
     if (buyOrder.online_ingame === true) {
       buyPrices.push(buyOrder.price);
     }
@@ -43,14 +40,10 @@ function getMaxBuy(item) {
   return Math.max.apply(Math, buyPrices);
 }
 
-function getMinSell(item) {
-  var orders = figureItemType(item);
-  while (orders.buy === undefined) {
-    orders = figureItemType(item);
-  }
+function getMinSell(orders) {
   var sellPrices = [];
-  for (var i = 0; i < orders.sell.length; i++) {
-    var buyOrder = orders.sell[i];
+  for (var i = 0; i < orders.length; i++) {
+    var buyOrder = orders[i];
     if (buyOrder.online_ingame === true) {
       sellPrices.push(buyOrder.price);
     }
