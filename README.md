@@ -15,6 +15,18 @@ This is cumbersome and thus I have automated the process of looking up the value
 * Go back to sheet and fill in a relics name and rare item drop
 * In a separate cell use =valueitem(the_cell)
 
-### Prerequisites
+## Prerequisites
 
 Google Sheets.
+
+## Example
+I laid my table out as such
+![image not found](images/TableTemplate.png)
+
+In the first cell of the "Min Sell" column I put:
+
+![image not found](images/valueItem.png)
+
+And then double-clicked the bottom corner of the cell to fill out all the rest
+
+![image not found](images/cursor.png)
