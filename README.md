@@ -30,3 +30,6 @@ In the first cell of the "Min Sell" column I put:
 And then double-clicked the bottom corner of the cell to fill out all the rest
 
 ![image not found](images/cursor.png)
+
+## License
+I do not own anything, I am not affiliated with Warframe in any way.
