@@ -21,7 +21,7 @@ Google Sheets.
 
 ## Example
 I laid my table out as such
-![image not found](images/TableTemplate.png)
+![image not found](images/TableTemplate2.png)
 
 In the first cell of the "Min Sell" column I put:
 
