@@ -20,7 +20,8 @@ This is cumbersome and thus I have automated the process of looking up the value
 Google Sheets.
 
 ## Example
-I laid my table out as such
+I laid my table out as such:
+
 ![image not found](images/TableTemplate2.png)
 
 In the first cell of the "Min Sell" column I put:
