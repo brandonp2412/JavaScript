@@ -11,7 +11,7 @@ This is cumbersome and thus I have automated the process of looking up the value
 
 * Make new Google Sheet
 * Go to tools > script editor
-* Paste code from Prod.js
+* Paste code from valueRelic.js
 * Go back to sheet and fill in a relics name and rare item drop
 * In a separate cell use =valueitem(the_cell)
 
