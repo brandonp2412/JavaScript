@@ -1,6 +1,11 @@
 # Relic Valuation
 
-This repo is all about Warframe and giving a value to each relic. Trying to value relics in warframe requires remembering not only the names of each relic, but also its rare drop. This is cumbersome and thus I have automated the process of looking up the value for each relic. This project was undertaken using Google Sheets and this is simply a dump for the code used since I am too lazy to publish.
+This repo is all about Warframe and automating some basic tasks related to the game. Trying to value relics in warframe currently needs you to:
+* Get the relic you want
+* Find out it's rare drop
+* Go to warframe.market and search its rare drop. 
+
+This is cumbersome and thus I have automated the process of looking up the value for each relic. This project was undertaken using Google Sheets and this is simply a dump for the code used since I am too lazy to publish.
 
 ## Getting Started
 
