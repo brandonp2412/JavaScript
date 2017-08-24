@@ -19,7 +19,14 @@ This is cumbersome and thus I have automated the process of looking up the value
 
 Google Sheets.
 
-## Example 1
+## setUpSpreadsheet Method
+* Follow getting started section
+* Create sheets with the same names and layout as shown: (conditional formatting optional)
+![image not found](images/TableTemplate3.png)
+* Go to Tools/Script Editor, Select function/setUpSpreadsheet
+* Run selected function
+
+## valueItem Method
 I laid my table out as such:
 
 ![image not found](images/TableTemplate2.png)
@@ -32,13 +39,7 @@ And then double-clicked the bottom corner of the cell to fill out all the rest
 
 ![image not found](images/cursor.png)
 
-## setUpSpreadsheet Method
-This method of building the table is more efficient in terms of requests than Example 1.
-* Follow getting started section
-* Create sheets with the same names and layout as shown: (conditional formatting optional)
-![image not found](images/TableTemplate3.png)
-* Go to Tools/Script Editor, Select function/setUpSpreadsheet
-* Run selected function
+
 
 ## License
 I do not own anything, I am not affiliated with Warframe in any way.
