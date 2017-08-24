@@ -4,23 +4,9 @@
  * GitHub: https://github.com/brandonp2412/RelicValuation
  */
 
-function getDate() {
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth()+1; //January is 0!
-  var yyyy = today.getFullYear();
-  if(dd<10) {
-    dd = '0'+dd
-  } 
-  if(mm<10) {
-    mm = '0'+mm
-  } 
-  today = mm + '/' + dd + '/' + yyyy;
-  return today;
-}
-
-function test() {
-  filter('All', 'Testing', 'Axi');
+function setupSpreadsheet() {
+  buildAll();
+  separate();
 }
 
 // Takes all the records from All and separates them by relic
@@ -45,17 +31,30 @@ function buildAll() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var all = ss.getSheetByName('All');
   var colCDE = all.getRange("C2:E");
+  var items = [];
   for (var i = 1; i <= itemNames.length; i++) {
     var item = itemNames[i-1];
-    try {
-      var value = valueItem(item);
+    var found = findItem(items, item);
+    if (!found) {
+      try {
+        found = valueItem(item);
+        items.push({key: item, value: found});
+      }
+      catch (e) {
+        Logger.log(e);
+      }
     }
-    catch (e) {
-      Logger.log(e);
+    colCDE.getCell(i, 1).setValue(found[0][0]);
+    colCDE.getCell(i, 2).setValue(found[0][1]);
+    colCDE.getCell(i, 3).setValue(found[0][2]);
+  }
+}
+
+function findItem(items, key) {
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].key === key) {
+      return items[i].value;
     }
-    colCDE.getCell(i, 1).setValue(value[0][0]);
-    colCDE.getCell(i, 2).setValue(value[0][1]);
-    colCDE.getCell(i, 3).setValue(value[0][2]);
   }
 }
 
@@ -161,4 +160,19 @@ function getMinSell(orders) {
   }
   if (sellPrices.length == 0) return 0;
   return Math.min.apply(Math, sellPrices);
+}
+
+function getDate() {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+  if(dd<10) {
+    dd = '0'+dd
+  } 
+  if(mm<10) {
+    mm = '0'+mm
+  } 
+  today = mm + '/' + dd + '/' + yyyy;
+  return today;
 }
