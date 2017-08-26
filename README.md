@@ -30,11 +30,7 @@ Google Sheets.
 * Run selected function
 
 ## Valuing an Item
-I laid my table out as such:
-
-![image not found](images/TableTemplate2.png)
-
-In the first cell of the "Min Sell" column I put:
+After laying out my table as shown above, in the first cell of the "Min Sell" column I put:
 
 ![image not found](images/valueItem.png)
 
