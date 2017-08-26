@@ -1,6 +1,6 @@
 # Relic Valuation
 
-This repo is all about Warframe and automating some basic tasks related to the game. Trying to value relics in warframe currently needs you to:
+This script is all about Warframe and automating some basic tasks related to the game. Trying to value relics in warframe currently needs you to:
 * Get the relic you want
 * Find out it's rare drop
 * Go to warframe.market and search its rare drop. 
