@@ -7,6 +7,17 @@
 function setupSpreadsheet() {
   buildAll();
   separate();
+  sortSheets();
+}
+
+function sortSheets() {
+  var sheetNames = ["All", "Axi", "Neo", "Meso", "Lith"];
+  for (var i = 0; i < sheetNames.length; i++) {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var all = ss.getSheetByName(sheetNames[i]);
+    var data = all.getRange("A:E")
+    data.sort({column: 3, ascending: false})
+  } 
 }
 
 // Takes all the records from All and separates them by relic
@@ -16,6 +27,8 @@ function separate() {
   filter('All', 'Meso', 'Meso');
   filter('All', 'Lith', 'Lith');
 }
+
+
 
 function valueItem(item) {
   var orders = figureItemType(item);
