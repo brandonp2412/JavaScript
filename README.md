@@ -22,14 +22,14 @@ This is cumbersome and thus I have automated the process of looking up the value
 
 Google Sheets.
 
-## setUpSpreadsheet Method
+## Setting up a Spreadsheet
 * Follow getting started section
 * Create sheets with the same names and layout as shown: (conditional formatting optional)
 ![image not found](images/TableTemplate3.png)
 * Go to Tools/Script Editor, Select function/setUpSpreadsheet
 * Run selected function
 
-## valueItem Method
+## Valuing an Item
 I laid my table out as such:
 
 ![image not found](images/TableTemplate2.png)
