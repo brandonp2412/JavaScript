@@ -7,6 +7,9 @@ This script is all about Warframe and automating some basic tasks related to the
 
 This is cumbersome and thus I have automated the process of looking up the value for each relic. This project was undertaken using Google Sheets and this is simply a dump for the code used since I am too lazy to publish.
 
+## Example
+[Warframe Relic Values](https://docs.google.com/spreadsheets/d/135-Dbjjcd8f4eOiy2vyKLhfGKhtg1PaNDMVsGm7IpVA/edit?usp=sharing)
+
 ## Getting Started
 
 * Make new Google Sheet
