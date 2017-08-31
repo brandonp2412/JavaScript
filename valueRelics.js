@@ -5,10 +5,10 @@
  */
 
 function test() {
-  var minSell, maxBuy, date = valueItem("Tesla Link", "Mod");
-  Logger.log(minSell);
-  Logger.log(maxBuy);
-  Logger.log(date);
+  var value = valueItem("Tesla Link", "Mod");
+  Logger.log(value[0]);
+  Logger.log(value[1]);
+  Logger.log(value[2]);
 }
 
 function setupSpreadsheet() {
@@ -17,20 +17,32 @@ function setupSpreadsheet() {
   sortSheets();
 }
 
+function sortSheets() {
+  var sheetNames = ["All", "Axi", "Neo", "Meso", "Lith"];
+  for (var i = 0; i < sheetNames.length; i++) {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var all = ss.getSheetByName(sheetNames[i]);
+    var data = all.getRange("A:E")
+    data.sort({column: 3, ascending: false})
+  } 
+}
+
+// Takes all the records from All and separates them by relic
+function separate() {
+  filter('All', 'Axi', 'Axi');
+  filter('All', 'Neo', 'Neo');
+  filter('All', 'Meso', 'Meso');
+  filter('All', 'Lith', 'Lith');
+}
+
+
+
 function valueItem(item, category) {
   var orders = getOrders(item, category);
   var maxBuy = getMaxBuy(orders.buy);
   var minSell = getMinSell(orders.sell);
   var today = new Date();
   return [[minSell, maxBuy, getDate()]];
-}
-
-function findItem(items, key) {
-  for (var i = 0; i < items.length; i++) {
-    if (items[i].key === key) {
-      return items[i].value;
-    }
-  }
 }
 
 // Option for building All sheet programmatically
@@ -58,14 +70,12 @@ function buildAll() {
   }
 }
 
-function sortSheets() {
-  var sheetNames = ["All", "Axi", "Neo", "Meso", "Lith"];
-  for (var i = 0; i < sheetNames.length; i++) {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var all = ss.getSheetByName(sheetNames[i]);
-    var data = all.getRange("A:E")
-    data.sort({column: 3, ascending: false})
-  } 
+function findItem(items, key) {
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].key === key) {
+      return items[i].value;
+    }
+  }
 }
 
 /*
@@ -125,16 +135,17 @@ function removeRows() {
   var axi = ss.getSheetByName("Axi");
   for (var i = 0; i < relicNames.length; i++) {
     if (relicNames[i].toString().indexOf("Neo") !== -1) {
-      axi.devareRow(i+1);
+      axi.deleteRow(i+1);
     }
   }
 }
 
-function getOrders(item, category) {
-  var url = encodeURI("https://warframe.market/api/get_orders/" + category + "/" + item);
+function getOrders(item, url) {
+  var url = encodeURI(url + item);
   var get = UrlFetchApp.fetch(url).getContentText();
   return JSON.parse(get).response;
 }
+
 
 
 function getMaxBuy(orders) {
