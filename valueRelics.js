@@ -6,9 +6,9 @@
 
 function test() {
   var value = valueItem("Tesla Link", "Mod");
-  Logger.log(value[0]);
-  Logger.log(value[1]);
-  Logger.log(value[2]);
+  Logger.log("Min sell: " + value[0][0]);
+  Logger.log("Max buy: " + value[0][1]);
+  Logger.log("Current date: " + value[0][2]);
 }
 
 function setupSpreadsheet() {
@@ -47,9 +47,9 @@ function valueItem(item, category) {
 
 // Option for building All sheet programmatically
 function buildAll() {
-  var itemNames = getItemNames('All');
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var all = ss.getSheetByName('All');
+  var itemNames = getColumnValues(all, "A");
   var colCDE = all.getRange("C2:E");
   var items = [];
   for (var i = 1; i <= itemNames.length; i++) {
@@ -103,10 +103,9 @@ function filter(input, output, pattern) {
   }
 }
 
-function getItemNames(sheet) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var testing = ss.getSheetByName(sheet);
-  var colB = testing.getRange("B2:B").getDisplayValues();
+// Returns an array containing all non-empty values of a column, excluding its header.
+function getColumnValues(sheet, column) {
+  var colB = sheet.getRange(column + 2 + ":" + column).getDisplayValues();
   var itemNames = [];
   for (var i = 0; i < colB.length; i++) {
     if (colB[i][0]) {
@@ -115,6 +114,8 @@ function getItemNames(sheet) {
   }
   return itemNames;
 }
+
+
 
 function getRelicNames(sheet) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -140,9 +141,10 @@ function removeRows() {
   }
 }
 
-function getOrders(item, url) {
-  var url = encodeURI(url + item);
-  var get = UrlFetchApp.fetch(url).getContentText();
+function getOrders(item, category) {
+  var base = "https://warframe.market/api/get_orders"
+  var uri = encodeURI(base + "/" + category + "/" + item);
+  var get = UrlFetchApp.fetch(uri).getContentText();
   return JSON.parse(get).response;
 }
 
