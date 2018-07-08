@@ -40,5 +40,5 @@ And then double-clicked the bottom corner of the cell to fill out all the rest
 
 
 
-## License
+## Disclaimer
 I do not own anything, I am not affiliated with Warframe in any way.
