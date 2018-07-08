@@ -37,8 +37,3 @@ After laying out my table as shown above, in the first cell of the "Min Sell" co
 And then double-clicked the bottom corner of the cell to fill out all the rest
 
 ![image not found](images/cursor.png)
-
-
-
-## Disclaimer
-I do not own anything, I am not affiliated with Warframe in any way.
